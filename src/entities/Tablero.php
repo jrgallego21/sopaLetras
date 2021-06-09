@@ -59,35 +59,6 @@ class Tablero
         }
     }
 
-    public function mostrarTablero()
-    {
-        for ($i = 0; $i < $this->fila; $i++) {
-            for ($j = 0; $j < $this->columna; $j++) {
-                echo $this->tablero[$i][$j].'&nbsp;&nbsp;&nbsp;&nbsp;';
-            }
-            echo '<br>';
-        }
-    }
-
-    public function mostrarTableroHtml()
-    {
-        $tablaHml = '<h1 align="center">Sopa de Letas</h1>';
-        $tablaHml .= '<table width="70%" border="1px" align="center">';
-
-        for ($i = 0; $i < $this->fila; $i++) {
-            $tablaHml .= '<tr>';
-            for ($j = 0; $j < $this->columna; $j++) {
-                $tablaHml .= "<td align='center'>{$this->tablero[$i][$j]}</td>";
-            }
-            $tablaHml .= '</tr>';
-        }
-
-
-        $tablaHml .= '</table>';
-
-        return $tablaHml;
-    }
-
     public function completarTableroAletaoriamente()
     {
         for ($i = 0; $i < $this->fila; $i++) {
@@ -104,5 +75,33 @@ class Tablero
         $caracteresPermitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
         return $caracteresPermitidos[random_int(0, strlen($caracteresPermitidos)-1)];
+    }
+
+    public function mostrarTableroHtml()
+    {
+        $tablaHml = '<h1 align="center">Sopa de Letas</h1>';
+        $tablaHml .= '<table width="70%" border="1px" align="center">';
+
+        for ($i = 0; $i < $this->fila; $i++) {
+            $tablaHml .= '<tr>';
+            for ($j = 0; $j < $this->columna; $j++) {
+                $tablaHml .= "<td align='center'>{$this->tablero[$i][$j]}</td>";
+            }
+            $tablaHml .= '</tr>';
+        }
+
+        $tablaHml .= '</table>';
+
+        return $tablaHml;
+    }
+
+    public function mostrarTablero()
+    {
+        for ($i = 0; $i < $this->fila; $i++) {
+            for ($j = 0; $j < $this->columna; $j++) {
+                echo $this->tablero[$i][$j].'&nbsp;&nbsp;&nbsp;&nbsp;';
+            }
+            echo '<br>';
+        }
     }
 }

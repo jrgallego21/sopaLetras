@@ -1,0 +1,27 @@
+@startuml diagramaSecuenciaWsd
+' https://plantuml.com/es/
+
+class Tablero {
+  CARACTER_VACIO: const
+  fila: int
+  columna: int
+  tablero: Array
+  construct():
+  iniciarTablero(): void
+  completarTableroAleatoriamente(): void
+  generarCaracterAleatorio(): char
+  mostrarTablero(): void
+  mostrarTableroHtml(): void
+}
+
+class Palabra {
+  ruta: String
+  palabras: Array
+  construct():
+  buscarPalabras(): void
+  convertirPalabrasAMayusculas(): void
+  mostrarPalabrasHtml(): String
+}
+
+
+@enduml

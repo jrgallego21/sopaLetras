@@ -2,7 +2,7 @@
 
 namespace App\entities;
 
-class AdicionarPalabra
+class ColocarPalabra
 {
     public function derecha($palabra, $movimiento, $tablero) // ⟶
     {

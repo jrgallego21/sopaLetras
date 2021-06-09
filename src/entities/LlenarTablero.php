@@ -4,23 +4,24 @@ namespace App\entities;
 
 use App\entities\ValidarMovimiento;
 use App\entities\ValidarPalabra;
-use App\entities\AdicionarPalabra;
+use App\entities\ColocarPalabra;
 use App\entities\Movimiento;
 
+// cambiar el nombre de la clase a Juego
 class LlenarTablero
 {
     private $tablero;
     private $palabras;
     private $tipoMovimientos;
     private $validarPalabra;
-    private $adicionarPalabra;
+    private $colocarPalabra;
 
 
     public function __construct($tablero, $palabras, $tipoMovimientos)
     {
         $this->validarMoviento = new ValidarMovimiento(count($tablero), count($tablero[0]));
         $this->validarPalabra = new ValidarPalabra();
-        $this->adicionarPalabra = new AdicionarPalabra();
+        $this->colocarPalabra = new ColocarPalabra();
 
         $this->tablero         = $tablero;
         $this->palabras        = $palabras;
@@ -45,7 +46,7 @@ class LlenarTablero
     {
         if($this->validarMoviento->derecha($palabra, $movimiento)) {
             if($this->validarPalabra->derecha($palabra, $movimiento, $this->tablero)) {
-                $this->tablero = $this->adicionarPalabra->derecha($palabra, $movimiento, $this->tablero);
+                $this->tablero = $this->colocarPalabra->derecha($palabra, $movimiento, $this->tablero);
                 return 1;
             }
         }
@@ -56,7 +57,7 @@ class LlenarTablero
     {
         if($this->validarMoviento->izquierda($palabra, $movimiento)) {
             if($this->validarPalabra->izquierda($palabra, $movimiento, $this->tablero)) {
-                $this->tablero = $this->adicionarPalabra->izquierda($palabra, $movimiento, $this->tablero);
+                $this->tablero = $this->colocarPalabra->izquierda($palabra, $movimiento, $this->tablero);
                 return 1;
             }
         }
@@ -67,7 +68,7 @@ class LlenarTablero
     {
         if($this->validarMoviento->arriba($palabra, $movimiento)) {
             if($this->validarPalabra->arriba($palabra, $movimiento, $this->tablero)) {
-                $this->tablero = $this->adicionarPalabra->arriba($palabra, $movimiento, $this->tablero);
+                $this->tablero = $this->colocarPalabra->arriba($palabra, $movimiento, $this->tablero);
                 return 1;
             }
         }
@@ -78,7 +79,7 @@ class LlenarTablero
     {
         if($this->validarMoviento->abajo($palabra, $movimiento)) {
             if($this->validarPalabra->abajo($palabra, $movimiento, $this->tablero)) {
-                $this->tablero = $this->adicionarPalabra->abajo($palabra, $movimiento, $this->tablero);
+                $this->tablero = $this->colocarPalabra->abajo($palabra, $movimiento, $this->tablero);
                 return 1;
             }
         }
@@ -89,7 +90,7 @@ class LlenarTablero
     {
         if($this->validarMoviento->diagonalPrincipal($palabra, $movimiento)) {
             if($this->validarPalabra->diagonalPrincipal($palabra, $movimiento, $this->tablero)) {
-                $this->tablero = $this->adicionarPalabra->diagonalPrincipal($palabra, $movimiento, $this->tablero);
+                $this->tablero = $this->colocarPalabra->diagonalPrincipal($palabra, $movimiento, $this->tablero);
                 return 1;
             }
         }
@@ -100,7 +101,7 @@ class LlenarTablero
     {
         if($this->validarMoviento->diagonalPrincipalNegativa($palabra, $movimiento)) {
             if($this->validarPalabra->diagonalPrincipalNegativa($palabra, $movimiento, $this->tablero)) {
-                $this->tablero = $this->adicionarPalabra->diagonalPrincipalNegativa($palabra, $movimiento, $this->tablero);
+                $this->tablero = $this->colocarPalabra->diagonalPrincipalNegativa($palabra, $movimiento, $this->tablero);
                 return 1;
             }
         }
@@ -111,7 +112,7 @@ class LlenarTablero
     {
         if($this->validarMoviento->diagonalInvertida($palabra, $movimiento)) {
             if($this->validarPalabra->diagonalInvertida($palabra, $movimiento, $this->tablero)) {
-                $this->tablero = $this->adicionarPalabra->diagonalInvertida($palabra, $movimiento, $this->tablero);
+                $this->tablero = $this->colocarPalabra->diagonalInvertida($palabra, $movimiento, $this->tablero);
                 return 1;
             }
         }
@@ -122,7 +123,7 @@ class LlenarTablero
     {
         if($this->validarMoviento->diagonalInvertidaNegativa($palabra, $movimiento)) {
             if($this->validarPalabra->diagonalInvertidaNegativa($palabra, $movimiento, $this->tablero)) {
-                $this->tablero = $this->adicionarPalabra->diagonalInvertidaNegativa($palabra, $movimiento, $this->tablero);
+                $this->tablero = $this->colocarPalabra->diagonalInvertidaNegativa($palabra, $movimiento, $this->tablero);
                 return 1;
             }
         }

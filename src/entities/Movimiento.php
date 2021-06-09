@@ -2,6 +2,7 @@
 
 namespace App\entities;
 
+// cambiar a colocarPalabra
 class Movimiento
 {
     private $ruta;
