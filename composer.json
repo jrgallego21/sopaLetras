@@ -1,0 +1,22 @@
+{
+    "name": "jrg/sopa-de-letras",
+    "description": "Sopa de letras en PHP",
+    "type": "projec",
+    "require": {
+        "kint-php/kint": "dev-master",
+        "phpunit/phpunit": "6",
+        "guzzlehttp/guzzle": "6",
+        "illuminate/database": "5.5",
+        "monolog/monolog": "2.x-dev",
+        "dompdf/dompdf": "dev-master",
+        "twig/twig": "3",
+        "symplify/easy-coding-standard": "6"
+    },
+     "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "minimum-stability": "dev"
+}
