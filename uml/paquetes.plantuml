@@ -1,0 +1,21 @@
+@startuml diagrama_paquetes
+' https://plantuml.com/es/
+
+package "vendor" {
+  [kint-php/kint]
+  [phpunit/phpunit]
+  [guzzlehttp/guzzle]
+  [monolog/monolog]
+  [dompdf/dompdf]
+  [twig/twig]
+  [symplify/easy-coding-standard]
+  [illuminate/database] --> prueba
+}
+
+database "Postgres" {
+    frame "prueba" {
+        [Prueba]
+    }
+}
+
+@enduml

@@ -1,27 +1,51 @@
-@startuml diagramaSecuenciaWsd
+@startuml diagrama_clases
 ' https://plantuml.com/es/
 
 class Tablero {
-  CARACTER_VACIO: const
-  fila: int
-  columna: int
-  tablero: Array
-  construct():
-  iniciarTablero(): void
-  completarTableroAleatoriamente(): void
-  generarCaracterAleatorio(): char
-  mostrarTablero(): void
-  mostrarTableroHtml(): void
+  {static} CARACTER_VACIO: const
+  -fila: int
+  -columna: int
+  -tablero: Array
+  -construct():
+  +iniciarTablero(): void
+  +completarTableroAleatoriamente(): void
+  -generarCaracterAleatorio(): char
+  +mostrarTablero(): void
+  +mostrarTableroHtml(): void
 }
 
 class Palabra {
-  ruta: String
-  palabras: Array
+  -ruta: String
+  -palabras: Array
   construct():
-  buscarPalabras(): void
-  convertirPalabrasAMayusculas(): void
-  mostrarPalabrasHtml(): String
+  +buscarPalabras(): void
+  -convertirPalabrasAMayusculas(): void
+  +mostrarPalabrasHtml(): String
 }
 
+class ColocarPalabra {
+  +derecha(palabra, movimiento, tablero): tablero
+  +izquierda(palabra, movimiento, tablero): tablero
+  +arriba(palabra, movimiento, tablero): tablero
+  +abajo(palabra, movimiento, tablero): tablero
+  +diagonalPrincipal(palabra, movimiento, tablero): tablero
+  +diagonalPrincipalInvertida(palabra, movimiento, tablero): tablero
+  +diagonalNegativa(palabra, movimiento, tablero): tablero
+  +diagonalNegativaInvertida(palabra, movimiento, tablero): tablero
+}
+
+class Movimiento {
+  -ruta: String
+  -valorMaximoFila: int
+  -valorMaximoColumna: int
+  -tipoMovimiento: object
+  +generarMovimiento(): Array
+}
+
+class TipoMovimiento {
+  -ruta: String
+  -tipoMovimiento: object
+  +buscarTipoMovimiento():
+}
 
 @enduml
