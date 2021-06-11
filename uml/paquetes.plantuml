@@ -9,13 +9,50 @@ package "vendor" {
   [dompdf/dompdf]
   [twig/twig]
   [symplify/easy-coding-standard]
-  [illuminate/database] --> prueba
+  [illuminate/database]
+  [Autoload] #Yellow
 }
 
+package "Entidades" {
+  [Juego]
+  [Tablero]
+  [Palabra]
+  [CargarPalabra]
+  [ValidarCargarPalabra]
+  [Movimiento]
+  [ValidarMomiento]
+  [TipoMovimiento]
+}
+
+package "Controlador" {
+  [ControladorJuego]
+  [ControladorTablero]
+  [ControladorPalabra]
+  [ControladorMovimiento]
+  [ControladorTipoMovimiento]
+}
+
+package "Vista" {
+  [VistaJuego]
+  [TableroTablero]
+  [VistaPalabra]
+  [VistaMovimiento]
+  [VistaTipoMovimiento]
+}
+
+
+
+
 database "Postgres" {
-    frame "prueba" {
-        [Prueba]
+    frame "sopa de letras" {
+        [SopaDeLetras]
     }
 }
+
+
+[ControladorJuego] -left-> [Autoload]
+[ControladorJuego] -right-> [Juego]
+[ControladorJuego] -right-> [VistaJuego]
+[illuminate/database] -up-> [SopaDeLetras]
 
 @enduml
